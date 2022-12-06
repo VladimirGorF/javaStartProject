@@ -12,17 +12,25 @@ public class seminar1 {
 // Таким образом, первые несколько (или все) элементов массива должны быть отличны 
 // от заданного, а остальные - равны ему.
     
-    int [] arr = new int [] {3,2,3,2,3};
+    int [] arr = new int [] {3,1,2,3,2,3};
     for (int i = 0; i < arr.length - 1; i++){
-        for (int j = 0; j < arr.length - 1; j++){
             int temp = 0;
-            if (arr[j] == 3) {
-                temp = arr [j+1];
-                arr [j+1] = arr [j];
-                arr [j] = temp;
-                System.out.print(arr[j]);
+            if (arr[i] == 3 && arr[i+1] != 3) {
+                temp = arr [i+1];
+                arr [i+1] = arr [i];
+                arr [i] = temp; 
+            } 
+            else if (arr[i] == 3 && arr[i+1] == 3) {
+                for (int j = i+2; j < arr.length; j++ ){
+                    if (arr[j] != 3) {
+                        temp = arr [j];
+                        arr [j] = arr [i];
+                        arr [i] = temp;
+                    }
+
+                }
             }
-        }
+
     }
     
     System.out.println();
